@@ -1,0 +1,12 @@
+def run():
+    import platform, getpass, socket, subprocess, time
+    result = f"[+] Time: {time.ctime()}\n"
+    result += f"[+] Hostname: {platform.node()}\n"
+    result += f"[+] User: {getpass.getuser()}\n"
+    result += f"[+] OS: {platform.system()} {platform.release()}\n"
+    result += f"[+] IP: {socket.gethostbyname(socket.gethostname())}\n"
+    try:
+        result += f"[+] whoami: {subprocess.getoutput('whoami')}\n"
+    except:
+        pass
+    return result
